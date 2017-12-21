@@ -1,6 +1,6 @@
 // Notes provided up to inclusion of Router.
 // Router subsequently used to replace setVisibilityFilter in store
-// via route params. Move to #9
+// via route params. Move to #8
 
 import 'babel-polyfill';
 import React from 'react';
