@@ -1,16 +1,22 @@
+// Notes provided up to inclusion of Router.
+// Router subsequently used to replace setVisibilityFilter in store
+// via route params. Move to #9
+
 import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import todoApp from './reducers';
-import App from './components/App';
+// import { Provider } from 'react-redux';
+// import App from './components/App';
+import Root from './components/Root';
+import configureStore from './configureStore';
 
-const store = createStore(todoApp);
+/**
+ * We remove all the logic around configuring the store outside the root of the app
+ * This makes for easier testing and better composition
+ */
+const store = configureStore();
 
 render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <Root store={store} />,
   document.getElementById('root')
 );
